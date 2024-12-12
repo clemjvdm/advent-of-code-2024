@@ -34,4 +34,4 @@ eval3 (Div x y) = do n <- eval x                    -- after unwrapping x
 
 -- Here I'm done with the computerphile video on monads, but I'm still a little confused by list monads so currently following:
 -- https://www.schoolofhaskell.com/school/starting-with-haskell/basics-of-haskell/13-the-list-monad
--- TODO
+-- TODO: https://www.haskell.org/tutorial/monads.html#tut-monads
