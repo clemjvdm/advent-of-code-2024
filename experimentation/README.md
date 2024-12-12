@@ -1,1 +1,1 @@
-Since I'm doing advent of code to learn haskell in more depth I've created this directory for any experimentation I do along the way
+This directory contains any little experiments I do to deepen my functional programming skills, just in case I need them later.
