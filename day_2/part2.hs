@@ -16,8 +16,8 @@ safeCheckR (x:y:xs) ws
   | otherwise = safeCheck (ws ++ (y:xs)) || safeCheck (ws ++ x:xs)
 
 safeCheck :: [Int] -> Bool
-safeCheck [x,y] = x < y && (y-x) >= 1 && (y-x) <= 3
-safeCheck (x:y:xs) = x < y && (y-x) >= 1 && (y-x) <= 3 && safeCheck (y:xs)
+safeCheck [x,y] = inBounds (y-x)
+safeCheck (x:y:xs) = inBounds (y-x) && safeCheck (y:xs)
 
 inBounds :: Int -> Bool
 inBounds x = x >= 1 && x <= 3
