@@ -1,4 +1,3 @@
--- mul\([0-9]+,[0-9]+\)
 import Text.Regex.TDFA ((=~))
 import Text.Regex (matchRegex)
 
