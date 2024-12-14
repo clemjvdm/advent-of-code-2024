@@ -7,6 +7,8 @@ main = do
   let safe = length $ filter (\level -> safeCheckR level [] || safeCheckR (reverse level) []) levels
   print safe
 
+-- same as safeCheck except it allows 1 reactor to fail
+-- after which it continues to solve with the regular safeCheck
 safeCheckR :: [Int] -> [Int] -> Bool
 safeCheckR [x,y] _ = True
 safeCheckR (x:y:xs) ws
