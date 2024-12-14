@@ -2,14 +2,10 @@
 
 pkgs.mkShell {
   buildInputs = with pkgs; [
-    ghc
-    stack
+    (haskellPackages.ghcWithPackages (ps: with ps; [
+      regex-compat
+      regex-tdfa
+      split
+    ]))
   ];
-
-  shellHook = ''
-    echo "Haskell development environment loaded!"
-    echo "Available tools:"
-    echo " - GHC $(ghc --version)"
-    echo " - Stack $(stack --version)"
-  '';
 }
