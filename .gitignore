@@ -1,6 +1,6 @@
 *.hi
 *.o
 .stack-work
-part1
-part2
+1part
+2part
 *.txt
