@@ -5,6 +5,12 @@ main = do
   let result = solve "XMAS" contents + solve (reverse "XMAS") contents
   print result
 
+countWord :: String -> String -> Int
+countWord w l = sum [ 1 | i <- tails l, take (length w) i == w]
+
+mapIndex :: (a -> Int -> b) -> [a] -> [b]
+mapIndex f l = zipWith f l [0..length l - 1]
+
 solve :: String -> [String] -> Int
 solve w l = rows + cols + diar + diar' + dial + dial' - ider - idel
   where
@@ -16,9 +22,3 @@ solve w l = rows + cols + diar + diar' + dial + dial' - ider - idel
     dial' = sum $ map (countWord w) $ transpose $ mapIndex (flip drop) $ transpose $ reverse l
     ider = countWord w $ head $ transpose $ mapIndex (flip drop) l
     idel = countWord w $ head $ transpose $ mapIndex (flip drop) $ reverse l
-
-countWord :: String -> String -> Int
-countWord w l = sum [ 1 | i <- tails l, take (length w) i == w]
-
-mapIndex :: (a -> Int -> b) -> [a] -> [b]
-mapIndex f l = zipWith f l [0..length l - 1]
